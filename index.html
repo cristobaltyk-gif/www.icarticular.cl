@@ -563,5 +563,48 @@
   }
 </script>
 
+<!-- ASISTENTE DE VOZ (app.icarticular.cl en modo burbuja)
+     La burbuja vive DENTRO del iframe: el toque ocurre en la página de la
+     asistente, que así puede hablar y usar el micrófono de inmediato.
+     Al abrirse avisa por postMessage y aquí se agranda el iframe
+     (pantalla completa en el celular, ventana en la esquina en el computador). -->
+<style>
+  #ica-asistente {
+    position: fixed; right: 12px; bottom: 12px; z-index: 1000;
+    width: 190px; height: 76px; border: 0;
+    background: transparent; color-scheme: normal;
+  }
+  #ica-asistente.abierto {
+    width: 400px; height: min(720px, calc(100vh - 24px));
+    border-radius: 18px; background: #F4F7FB;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+  @media (max-width: 600px) {
+    #ica-asistente.abierto {
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100dvh; border-radius: 0;
+    }
+  }
+</style>
+<iframe id="ica-asistente"
+        src="https://app.icarticular.cl/?modo=widget"
+        title="Asistente del Instituto de Cirugía Articular"
+        allow="microphone; autoplay"></iframe>
+<script>
+  (function () {
+    var asistente = document.getElementById('ica-asistente');
+    var ORIGEN = 'https://app.icarticular.cl';
+    window.addEventListener('message', function (e) {
+      if (e.origin !== ORIGEN || e.source !== asistente.contentWindow) return;
+      var d = e.data || {};
+      if (d.fuente !== 'ica-asistente' || d.tipo !== 'widget') return;
+      var abierto = d.estado === 'abierto';
+      asistente.classList.toggle('abierto', abierto);
+      // En el celular la asistente ocupa la pantalla: la página de fondo no se desplaza
+      document.documentElement.style.overflow = abierto && window.innerWidth <= 600 ? 'hidden' : '';
+    });
+  })();
+</script>
+
 </body>
 </html>
