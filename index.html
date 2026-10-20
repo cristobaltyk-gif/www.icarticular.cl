@@ -2,565 +2,509 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ICA – Instituto de Cirugía Articular</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ICA – Instituto de Cirugía Articular | Cadera y Rodilla en Curicó y Rancagua</title>
+  <meta name="description" content="Traumatólogos especialistas en cirugía de cadera y rodilla, con rehabilitación kinesiológica. Atención en Curicó y Rancagua. Reserva tu hora online." />
+  <link rel="canonical" href="https://www.icarticular.cl/" />
+  <meta name="theme-color" content="#0E1A2B" />
+  <link rel="icon" href="fotos/ica.jpg" />
+  <link rel="apple-touch-icon" href="fotos/ica.jpg" />
+
+  <!-- Vista previa al compartir (WhatsApp, Facebook, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.icarticular.cl/" />
+  <meta property="og:title" content="ICA – Instituto de Cirugía Articular" />
+  <meta property="og:description" content="Especialistas en cadera y rodilla en Curicó y Rancagua. Reserva tu hora online." />
+  <meta property="og:image" content="https://www.icarticular.cl/fotos/ica.jpg" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:    #0B1F3A;
-      --blue:    #1A56A0;
-      --sky:     #2E8DE8;
-      --accent:  #00C2B3;
-      --light:   #F4F8FF;
+      --ink:     #0E1A2B;   /* texto principal */
+      --steel:   #2F5D8A;   /* azul acero del logo */
+      --steel-2: #4F7FB0;
+      --soft:    #EAF1F8;   /* fondo de íconos */
+      --bg:      #F6F8FB;   /* fondo de secciones */
       --white:   #FFFFFF;
-      --gray:    #6B7280;
-      --border:  #E5ECF6;
+      --muted:   #5B6778;
+      --line:    #DFE6EF;
+      --radius:  16px;
+      --nav-h:   64px;
+      --tab-h:   64px;
     }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; color: var(--navy); background: var(--white); }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(11,31,58,0.97); backdrop-filter: blur(10px);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%; height: 68px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
+    body {
+      font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: var(--white);
+      font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-icon {
-      width: 36px; height: 36px; background: var(--accent);
-      border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 14px; color: var(--navy); letter-spacing: -0.5px;
-    }
-    .nav-logo-text { color: var(--white); font-weight: 700; font-size: 16px; letter-spacing: 0.3px; }
-    .nav-logo-text span { color: var(--accent); }
+    h1, h2, h3 { font-family: 'Manrope', 'Inter', sans-serif; letter-spacing: -0.02em; line-height: 1.2; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .icon { width: 22px; height: 22px; flex: none; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-    .nav-links { display: flex; align-items: center; gap: 28px; }
-    .nav-links a {
-      color: rgba(255,255,255,0.75); text-decoration: none;
-      font-size: 13.5px; font-weight: 500; transition: color .2s;
-      position: relative;
-    }
-    .nav-links a:hover { color: var(--white); }
-    .nav-links a.active { color: var(--accent); }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 72px 0; }
+    .eyebrow { font-size: 13px; font-weight: 600; color: var(--steel); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 8px; }
+    .title { font-size: clamp(1.6rem, 3.2vw, 2.2rem); font-weight: 800; margin-bottom: 10px; }
+    .lead { color: var(--muted); max-width: 600px; margin-bottom: 36px; }
 
-    .nav-cta {
-      background: var(--accent); color: var(--navy) !important;
-      padding: 8px 18px; border-radius: 8px; font-weight: 700 !important;
-      font-size: 13px !important; transition: opacity .2s !important;
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      min-height: 48px; padding: 0 22px; border-radius: 12px;
+      font-weight: 600; font-size: 15px; text-decoration: none; cursor: pointer;
+      transition: background .2s, border-color .2s, transform .15s;
     }
-    .nav-cta:hover { opacity: 0.88; }
+    .btn:active { transform: scale(.98); }
+    .btn-main { background: var(--steel); color: var(--white); }
+    .btn-main:hover { background: #264d74; }
+    .btn-line { border: 1.5px solid var(--line); color: var(--ink); background: var(--white); }
+    .btn-line:hover { border-color: var(--steel-2); }
 
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-    .hamburger span { width: 22px; height: 2px; background: white; border-radius: 2px; transition: .3s; }
+    /* ── BARRA SUPERIOR ── */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 90; height: var(--nav-h);
+      background: rgba(255,255,255,.94); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar .wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand img { width: 38px; height: 38px; border-radius: 9px; object-fit: cover; }
+    .brand strong { font-family: 'Manrope', 'Inter', sans-serif; font-size: 15px; font-weight: 800; display: block; line-height: 1.1; }
+    .brand span { font-size: 12px; color: var(--muted); }
+    .menu { display: flex; align-items: center; gap: 4px; }
+    .menu a {
+      text-decoration: none; font-size: 14px; font-weight: 500; color: var(--muted);
+      padding: 8px 12px; border-radius: 8px; transition: color .2s, background .2s;
+    }
+    .menu a:hover { color: var(--ink); background: var(--bg); }
+    .menu a.activo { color: var(--steel); background: var(--soft); }
+    .menu .btn { margin-left: 8px; min-height: 40px; padding: 0 16px; font-size: 14px; color: var(--white); }
+    .menu .btn:hover { background: #264d74; color: var(--white); }
+    .top-reservar { display: none; }
 
     /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #0B1F3A 0%, #0f2d57 55%, #1A56A0 100%);
-      display: flex; align-items: center; padding: 100px 5% 60px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 70% 50%, rgba(0,194,179,0.12) 0%, transparent 60%);
-    }
-    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; position: relative; }
+    .hero { padding: calc(var(--nav-h) + 56px) 0 56px; background: linear-gradient(180deg, var(--bg) 0%, var(--white) 100%); }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 800; margin-bottom: 16px; }
+    .hero h1 em { font-style: normal; color: var(--steel); }
+    .hero p.lead { font-size: 1.08rem; margin-bottom: 28px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-figure { background: var(--ink); border-radius: 24px; overflow: hidden; aspect-ratio: 1 / 1; box-shadow: 0 24px 60px rgba(14,26,43,.18); }
+    .hero-figure img { width: 100%; height: 100%; object-fit: cover; }
 
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(0,194,179,0.12); border: 1px solid rgba(0,194,179,0.3);
-      color: var(--accent); padding: 6px 14px; border-radius: 50px;
-      font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
-      margin-bottom: 20px;
+    /* ── ¿QUÉ NECESITAS? ── */
+    .necesitas { padding: 0 0 72px; }
+    .necesitas h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 14px; }
+    .acciones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .accion {
+      display: flex; align-items: center; gap: 14px; padding: 18px;
+      background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+      text-decoration: none; transition: border-color .2s, box-shadow .2s;
     }
-    .hero-badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .accion:hover { border-color: var(--steel-2); box-shadow: 0 8px 24px rgba(47,93,138,.10); }
+    .accion .ico { width: 48px; height: 48px; border-radius: 12px; background: var(--soft); color: var(--steel); display: grid; place-items: center; flex: none; }
+    .accion strong { display: block; font-family: 'Manrope', 'Inter', sans-serif; font-size: 16px; font-weight: 700; }
+    .accion span { font-size: 13.5px; color: var(--muted); }
+    .accion .flecha { margin-left: auto; color: var(--steel-2); }
 
-    .hero h1 {
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      font-weight: 800; color: var(--white);
-      line-height: 1.15; margin-bottom: 20px;
-    }
-    .hero h1 em { font-style: normal; color: var(--accent); }
+    /* ── QUÉ TRATAMOS ── */
+    #tratamos { background: var(--bg); }
+    .trat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .trat { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .trat .ico { width: 44px; height: 44px; border-radius: 12px; background: var(--soft); color: var(--steel); display: grid; place-items: center; margin-bottom: 16px; }
+    .trat h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
+    .trat p { color: var(--muted); font-size: 15px; margin-bottom: 14px; }
+    .trat ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .trat li { font-size: 12.5px; font-weight: 500; color: var(--steel); background: var(--soft); padding: 4px 10px; border-radius: 99px; }
 
-    .hero p {
-      color: rgba(255,255,255,0.72); font-size: 1.05rem;
-      line-height: 1.7; margin-bottom: 36px; max-width: 480px;
-    }
+    /* ── ESPECIALISTAS ── */
+    .doc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .doc { display: grid; grid-template-columns: 180px 1fr; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: var(--white); }
+    .doc-foto { background: var(--soft); }
+    .doc-foto img { width: 100%; height: 100%; object-fit: cover; object-position: top; min-height: 240px; }
+    .doc-info { padding: 22px; display: flex; flex-direction: column; }
+    .doc-info h3 { font-size: 1.15rem; font-weight: 800; }
+    .doc-cargo { font-size: 13.5px; color: var(--steel); font-weight: 600; margin: 2px 0 10px; }
+    .doc-info p { font-size: 14.5px; color: var(--muted); margin-bottom: 12px; }
+    .doc-lugares { list-style: none; margin-bottom: 16px; }
+    .doc-lugares li { display: flex; gap: 6px; align-items: flex-start; font-size: 13.5px; color: var(--muted); padding: 2px 0; }
+    .doc-lugares .icon { width: 16px; height: 16px; margin-top: 3px; color: var(--steel-2); }
+    .doc-info .btn { margin-top: auto; align-self: flex-start; }
 
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--accent); color: var(--navy);
-      padding: 14px 28px; border-radius: 10px; font-weight: 700;
-      font-size: 15px; text-decoration: none; transition: transform .2s, box-shadow .2s;
-      box-shadow: 0 4px 20px rgba(0,194,179,0.35);
-    }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,194,179,0.45); }
-    .btn-ghost {
-      border: 1.5px solid rgba(255,255,255,0.3); color: var(--white);
-      padding: 14px 28px; border-radius: 10px; font-weight: 600;
-      font-size: 15px; text-decoration: none; transition: border-color .2s, background .2s;
-    }
-    .btn-ghost:hover { border-color: var(--accent); background: rgba(0,194,179,0.08); }
-
-    .hero-stats {
-      display: flex; gap: 32px; margin-top: 44px;
-      padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.12);
-    }
-    .stat-item { text-align: left; }
-    .stat-num { font-size: 2rem; font-weight: 800; color: var(--white); }
-    .stat-num span { color: var(--accent); }
-    .stat-label { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
-
-    .hero-image-wrapper {
-      position: relative; display: flex; justify-content: center;
-    }
-    .hero-image-card {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 24px; padding: 8px; backdrop-filter: blur(10px);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
-    }
-    .hero-image-card img {
-      width: 100%; max-width: 440px; border-radius: 18px;
-      display: block; object-fit: cover;
-    }
-    .hero-floating-badge {
-      position: absolute; bottom: -14px; left: -20px;
-      background: var(--white); border-radius: 14px; padding: 12px 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-      display: flex; align-items: center; gap: 10px;
-    }
-    .hfb-icon { font-size: 22px; }
-    .hfb-text { font-size: 12px; }
-    .hfb-text strong { display: block; color: var(--navy); font-weight: 700; font-size: 13px; }
-    .hfb-text span { color: var(--gray); }
-
-    /* ── ACCESOS RÁPIDOS ── */
-    .quick-access {
-      background: var(--light); padding: 60px 5%;
-    }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-label {
-      text-align: center; font-size: 12px; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: var(--sky); margin-bottom: 10px;
-    }
-    .section-title {
-      text-align: center; font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 800; color: var(--navy); margin-bottom: 10px;
-    }
-    .section-sub {
-      text-align: center; color: var(--gray); font-size: 1rem;
-      margin-bottom: 44px; max-width: 560px; margin-left: auto; margin-right: auto;
-    }
-
-    .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-    .app-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 18px; padding: 28px 24px;
-      text-decoration: none; transition: transform .25s, box-shadow .25s;
-      display: flex; flex-direction: column; gap: 12px;
-    }
-    .app-card:hover { transform: translateY(-5px); box-shadow: 0 16px 40px rgba(26,86,160,0.13); }
-    .app-card-icon {
-      width: 52px; height: 52px; border-radius: 14px;
-      display: flex; align-items: center; justify-content: center; font-size: 24px;
-    }
-    .icon-blue  { background: #EBF4FF; }
-    .icon-teal  { background: #E6FAF8; }
-    .icon-green { background: #E8F5E9; }
-    .icon-purple{ background: #F3E8FF; }
-    .app-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); }
-    .app-card p  { font-size: 13px; color: var(--gray); line-height: 1.5; flex: 1; }
-    .app-card-arrow {
-      align-self: flex-start; font-size: 13px; font-weight: 700;
-      color: var(--sky); display: flex; align-items: center; gap: 4px;
-    }
-
-    /* ── ESPECIALIDADES ── */
-    .especialidades { padding: 80px 5%; background: var(--white); }
-    .esp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
-    .esp-card {
-      border-radius: 20px; overflow: hidden;
-      border: 1px solid var(--border); transition: transform .25s, box-shadow .25s;
-    }
-    .esp-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(26,86,160,0.12); }
-    .esp-header {
-      height: 12px;
-      background: linear-gradient(90deg, var(--blue), var(--sky));
-    }
-    .esp-header.teal { background: linear-gradient(90deg, var(--accent), #00a895); }
-    .esp-body { padding: 28px; }
-    .esp-icon { font-size: 32px; margin-bottom: 14px; }
-    .esp-body h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .esp-body p  { font-size: 14px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
-    .esp-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag {
-      background: var(--light); color: var(--blue);
-      font-size: 12px; font-weight: 500; padding: 4px 10px; border-radius: 50px;
-    }
-
-    /* ── DOCTORES ── */
-    .doctores { background: var(--light); padding: 80px 5%; }
-    .doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
-    .doc-card {
-      background: var(--white); border-radius: 22px; overflow: hidden;
-      border: 1px solid var(--border); transition: transform .25s, box-shadow .25s;
-    }
-    .doc-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(26,86,160,0.14); }
-    .doc-img-wrap { position: relative; height: 280px; overflow: hidden; background: #e8eef7; }
-    .doc-img-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
-    .doc-img-wrap .doc-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(11,31,58,0.6) 0%, transparent 50%);
-    }
-    .doc-info { padding: 24px; }
-    .doc-info h3 { font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
-    .doc-info .doc-title { font-size: 13px; color: var(--sky); font-weight: 600; margin-bottom: 14px; }
-    .doc-info p { font-size: 13.5px; color: var(--gray); line-height: 1.6; margin-bottom: 16px; }
-    .doc-clinics { display: flex; flex-direction: column; gap: 6px; }
-    .clinic-item {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 12.5px; color: var(--gray);
-    }
-    .clinic-item::before { content: '📍'; font-size: 12px; }
+    /* ── DÓNDE ATENDEMOS ── */
+    #donde { background: var(--bg); }
+    .centros { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .centro { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; display: flex; flex-direction: column; }
+    .centro .ciudad { font-size: 12.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--steel); }
+    .centro h3 { font-size: 1.1rem; font-weight: 700; margin: 4px 0 2px; }
+    .centro .dir { color: var(--muted); font-size: 14.5px; margin-bottom: 10px; }
+    .centro .quien { font-size: 13.5px; color: var(--ink); margin-bottom: 16px; }
+    .centro .quien b { font-weight: 600; }
+    .centro .btn { margin-top: auto; min-height: 42px; font-size: 14px; }
 
     /* ── CONTACTO ── */
-    .contacto { padding: 80px 5%; background: var(--white); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .contact-info h2 { font-size: 2rem; font-weight: 800; color: var(--navy); margin-bottom: 16px; }
-    .contact-info p  { color: var(--gray); font-size: 1rem; line-height: 1.7; margin-bottom: 28px; }
-    .contact-items { display: flex; flex-direction: column; gap: 16px; }
-    .contact-item {
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px 18px; background: var(--light);
-      border-radius: 12px; border: 1px solid var(--border);
+    .contacto-box {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center;
+      background: var(--ink); color: var(--white); border-radius: 24px; padding: 44px;
     }
-    .contact-item-icon { font-size: 20px; }
-    .contact-item-text { font-size: 14px; color: var(--navy); font-weight: 500; }
-    .contact-item-text span { display: block; font-size: 12px; color: var(--gray); font-weight: 400; }
-
-    .contact-cta-box {
-      background: linear-gradient(135deg, var(--navy), #1A56A0);
-      border-radius: 24px; padding: 44px 36px; color: white; text-align: center;
+    .contacto-box .eyebrow { color: #9DBBDB; }
+    .contacto-box .title { color: var(--white); }
+    .contacto-box p { color: rgba(255,255,255,.72); }
+    .contacto-lista { display: flex; flex-direction: column; gap: 12px; }
+    .contacto-lista a {
+      display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px;
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      text-decoration: none; color: var(--white); transition: background .2s;
     }
-    .contact-cta-box h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 12px; }
-    .contact-cta-box p  { font-size: 14px; opacity: .75; margin-bottom: 28px; line-height: 1.6; }
+    .contacto-lista a:hover { background: rgba(255,255,255,.12); }
+    .contacto-lista small { display: block; font-size: 12.5px; color: rgba(255,255,255,.6); }
+    .contacto-lista .icon { color: #9DBBDB; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy); color: rgba(255,255,255,0.6);
-      padding: 40px 5%; text-align: center; font-size: 13px;
-    }
-    footer a { color: var(--accent); text-decoration: none; }
-    footer .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+    /* ── PIE ── */
+    footer { border-top: 1px solid var(--line); padding: 40px 0 32px; font-size: 14px; color: var(--muted); }
+    .pie-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px; margin-bottom: 28px; }
+    footer h4 { font-family: 'Manrope', 'Inter', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink); margin-bottom: 10px; }
+    footer ul { list-style: none; }
+    footer li { padding: 3px 0; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: var(--steel); }
+    .pie-legal { border-top: 1px solid var(--line); padding-top: 18px; font-size: 13px; }
 
-    /* ── RESPONSIVE ── */
+    /* ── BARRA INFERIOR (celular) ── */
+    .tabbar { display: none; }
+
     @media (max-width: 900px) {
-      .hero-grid     { grid-template-columns: 1fr; text-align: center; }
-      .hero p        { margin: 0 auto 36px; }
-      .hero-actions  { justify-content: center; }
-      .hero-stats    { justify-content: center; }
-      .hero-image-wrapper { display: none; }
-      .contact-grid  { grid-template-columns: 1fr; }
-      .nav-links     { display: none; }
-      .hamburger     { display: flex; }
-    }
-    @media (max-width: 600px) {
-      .hero-stats { flex-wrap: wrap; gap: 20px; }
-      .apps-grid  { grid-template-columns: 1fr; }
-    }
+      section { padding: 56px 0; }
+      .menu { display: none; }
+      .top-reservar { display: inline-flex; min-height: 40px; padding: 0 16px; font-size: 14px; }
+      .hero { padding: calc(var(--nav-h) + 28px) 0 36px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-figure { order: -1; aspect-ratio: 16 / 9; border-radius: 18px; }
+      .hero-actions .btn { flex: 1; }
+      .acciones, .trat-grid, .centros { grid-template-columns: 1fr; }
+      .doc-grid { grid-template-columns: 1fr; }
+      .contacto-box { grid-template-columns: 1fr; padding: 28px 22px; }
+      .pie-grid { grid-template-columns: 1fr; gap: 20px; }
 
-    /* ── MOBILE MENU ── */
-    .mobile-menu {
-      display: none; position: fixed; inset: 0; z-index: 99;
-      background: rgba(11,31,58,0.98); flex-direction: column;
-      align-items: center; justify-content: center; gap: 28px;
+      body { padding-bottom: calc(var(--tab-h) + env(safe-area-inset-bottom)); }
+      .tabbar {
+        display: grid; grid-template-columns: repeat(4, 1fr);
+        position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
+        height: calc(var(--tab-h) + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom);
+        background: rgba(255,255,255,.97); backdrop-filter: blur(10px);
+        border-top: 1px solid var(--line);
+      }
+      .tabbar a {
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+        text-decoration: none; font-size: 11.5px; font-weight: 600; color: var(--muted);
+      }
+      .tabbar a.activo { color: var(--steel); }
+      .tabbar a.reservar { color: var(--steel); }
+      .tabbar a.reservar .icon { background: var(--steel); color: var(--white); border-radius: 10px; padding: 4px; width: 30px; height: 30px; }
     }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      color: white; text-decoration: none; font-size: 1.2rem; font-weight: 600;
-    }
-    .mobile-menu .close-btn {
-      position: absolute; top: 22px; right: 28px;
-      background: none; border: none; color: white; font-size: 28px; cursor: pointer;
+    @media (max-width: 520px) {
+      .brand span { display: none; }
+      .doc { grid-template-columns: 1fr; }
+      .doc-foto img { height: 280px; }
+      .doc-info .btn { align-self: stretch; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#inicio" class="nav-logo">
-    <div class="nav-logo-icon">ICA</div>
-    <span class="nav-logo-text">Instituto de Cirugía <span>Articular</span></span>
-  </a>
-  <div class="nav-links">
-    <a href="#inicio">Inicio</a>
-    <a href="#especialidades">Especialidades</a>
-    <a href="#equipo">Nuestros Expertos</a>
-    <a href="#contacto">Contacto</a>
-    <a href="https://reservas.icarticular.cl" target="_blank" class="nav-cta">Reservar Hora</a>
-  </div>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
-</nav>
+<!-- Íconos de línea (se reutilizan con <use>) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M8 2.5v4M16 2.5v4M3 10h18M8 14h2M14 14h2M8 17.5h2"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12Z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20.5c1.4-3.6 4.4-5.5 8-5.5s6.6 1.9 8 5.5"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-joint" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 3v5.8M12 15.2V21M7 4.5l2.6 4.8M17 19.5l-2.6-4.8"/></symbol>
+  <symbol id="i-hip" viewBox="0 0 24 24"><path d="M4 5c3 0 5 1.5 6 4M20 5c-3 0-5 1.5-6 4"/><circle cx="12" cy="11" r="2.5"/><path d="M10.5 13.2 8 21M13.5 13.2 16 21"/></symbol>
+  <symbol id="i-run" viewBox="0 0 24 24"><circle cx="14.5" cy="4.5" r="2"/><path d="m8 21 3-6 3 2 1 4M6 12l3-4 4 1 3 3 3 1M11 15l1.5-5"/></symbol>
+</svg>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="close-btn" onclick="toggleMenu()">✕</button>
-  <a href="#inicio"        onclick="toggleMenu()">Inicio</a>
-  <a href="#especialidades"onclick="toggleMenu()">Especialidades</a>
-  <a href="#equipo"        onclick="toggleMenu()">Nuestros Expertos</a>
-  <a href="#contacto"      onclick="toggleMenu()">Contacto</a>
-  <a href="https://reservas.icarticular.cl" target="_blank" onclick="toggleMenu()" style="color:var(--accent)">→ Reservar Hora</a>
+<!-- BARRA SUPERIOR -->
+<header class="topbar">
+  <div class="wrap">
+    <a href="#inicio" class="brand" aria-label="Inicio">
+      <img src="fotos/ica.jpg" alt="Logo ICA" />
+      <div>
+        <strong>ICA</strong>
+        <span>Instituto de Cirugía Articular</span>
+      </div>
+    </a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="#tratamos">Qué tratamos</a>
+      <a href="#especialistas">Especialistas</a>
+      <a href="#donde">Dónde atendemos</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://reservas.icarticular.cl" target="_blank" rel="noopener" class="btn btn-main">Reservar hora</a>
+    </nav>
+    <a href="https://reservas.icarticular.cl" target="_blank" rel="noopener" class="btn btn-main top-reservar">Reservar</a>
+  </div>
+</header>
+
+<main>
+
+<!-- INICIO -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Traumatología · Cadera y Rodilla</p>
+      <h1>Vuelve a moverte <em>sin dolor</em></h1>
+      <p class="lead">Especialistas en cirugía de cadera y rodilla, con rehabilitación kinesiológica de principio a fin. Atendemos en Curicó y Rancagua.</p>
+      <div class="hero-actions">
+        <a href="https://reservas.icarticular.cl" target="_blank" rel="noopener" class="btn btn-main">
+          <svg class="icon"><use href="#i-cal"/></svg> Reservar hora
+        </a>
+        <a href="#especialistas" class="btn btn-line">Ver especialistas</a>
+      </div>
+    </div>
+    <div class="hero-figure">
+      <img src="fotos/ica.jpg" alt="Instituto de Cirugía Articular" />
+    </div>
+  </div>
+</section>
+
+<!-- ¿QUÉ NECESITAS? -->
+<div class="necesitas">
+  <div class="wrap">
+    <h2>¿Qué necesitas?</h2>
+    <div class="acciones">
+      <a class="accion" href="https://reservas.icarticular.cl" target="_blank" rel="noopener">
+        <div class="ico"><svg class="icon"><use href="#i-cal"/></svg></div>
+        <div><strong>Reservar una hora</strong><span>Elige especialista, lugar y horario</span></div>
+        <svg class="icon flecha"><use href="#i-arrow"/></svg>
+      </a>
+      <a class="accion" href="https://app.icarticular.cl" target="_blank" rel="noopener">
+        <div class="ico"><svg class="icon"><use href="#i-chat"/></svg></div>
+        <div><strong>Resolver una duda</strong><span>Habla con nuestro asistente, 24/7</span></div>
+        <svg class="icon flecha"><use href="#i-arrow"/></svg>
+      </a>
+      <a class="accion" href="#donde">
+        <div class="ico"><svg class="icon"><use href="#i-pin"/></svg></div>
+        <div><strong>Ver dónde atendemos</strong><span>Centros en Curicó y Rancagua</span></div>
+        <svg class="icon flecha"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+  </div>
 </div>
 
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="hero-grid">
-    <div class="hero-content">
-      <div class="hero-badge">Especialistas en Cirugía Articular</div>
-      <h1>Recupera tu<br/><em>libertad de</em><br/>movimiento</h1>
-      <p>Cirugía de precisión en rodilla y cadera, combinada con rehabilitación kinesiológica integral. Atención especializada en Rancagua y Curicó.</p>
-      <div class="hero-actions">
-        <a href="https://reservas.icarticular.cl" target="_blank" class="btn-primary">Reservar Hora →</a>
-        <a href="#especialidades" class="btn-ghost">Ver Especialidades</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <div class="stat-num">2<span>+</span></div>
-          <div class="stat-label">Especialistas</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">3<span>+</span></div>
-          <div class="stat-label">Clínicas</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">IA<span>✦</span></div>
-          <div class="stat-label">Asistente Inteligente</div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-image-wrapper">
-      <div class="hero-image-card">
-        <img
-          src="https://lh3.googleusercontent.com/sitesv/AA5AbUCMJTZouh_lmY-W4ZzYHIdR5Ep3c6qkHW9IiXaMrTQ-4mRrMkjeGVwKOUfdJ3Do2tND1I8ydTkb3sWbJj0ZmPRNqf4KlribX_DSyvIMFOMeZRcX5MNY_aDQRnmh8-Q-1PbLDKXfCDzHi0aHUUiJZQhn6myS1IM1gi2dV27IqcVQWFiCU4Lu6xr6LhxGOO-EfhyPp3ybB6cKUCVhKp_qD1YRPxlFtz8Ezoh5nsc=w1280"
-          alt="ICA – Instituto de Cirugía Articular"
-        />
-      </div>
-      <div class="hero-floating-badge">
-        <div class="hfb-icon">🤖</div>
-        <div class="hfb-text">
-          <strong>Asistente IA disponible</strong>
-          <span>Consultas 24/7</span>
-        </div>
-      </div>
+<!-- QUÉ TRATAMOS -->
+<section id="tratamos">
+  <div class="wrap">
+    <p class="eyebrow">Qué tratamos</p>
+    <h2 class="title">Del diagnóstico a la recuperación</h2>
+    <p class="lead">Tratamiento quirúrgico y no quirúrgico, con un mismo equipo acompañándote en todo el proceso.</p>
+    <div class="trat-grid">
+      <article class="trat">
+        <div class="ico"><svg class="icon"><use href="#i-hip"/></svg></div>
+        <h3>Cadera</h3>
+        <p>Prótesis total de cadera con técnicas mínimamente invasivas. Diagnóstico y manejo del choque femoroacetabular.</p>
+        <ul><li>Prótesis de cadera</li><li>Choque femoroacetabular</li><li>Cirugía de revisión</li></ul>
+      </article>
+      <article class="trat">
+        <div class="ico"><svg class="icon"><use href="#i-joint"/></svg></div>
+        <h3>Rodilla</h3>
+        <p>Prótesis total y parcial de rodilla, y tratamiento de lesiones de ligamentos y meniscos.</p>
+        <ul><li>Prótesis de rodilla</li><li>Ligamentos</li><li>Meniscos</li></ul>
+      </article>
+      <article class="trat">
+        <div class="ico"><svg class="icon"><use href="#i-run"/></svg></div>
+        <h3>Kinesiología</h3>
+        <p>Rehabilitación después de la cirugía y vuelta al deporte, con protocolos basados en evidencia.</p>
+        <ul><li>Post operatorio</li><li>Rehabilitación deportiva</li><li>Vuelta al deporte</li></ul>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ACCESOS RÁPIDOS -->
-<section class="quick-access" id="accesos">
-  <div class="section-inner">
-    <p class="section-label">Plataforma Digital</p>
-    <h2 class="section-title">Todo ICA en un click</h2>
-    <p class="section-sub">Accede a nuestros servicios digitales integrados</p>
-    <div class="apps-grid">
-      <a href="https://reservas.icarticular.cl" target="_blank" class="app-card">
-        <div class="app-card-icon icon-blue">📅</div>
-        <h3>Reserva de Horas</h3>
-        <p>Agenda tu consulta con nuestros especialistas de forma rápida y sencilla.</p>
-        <div class="app-card-arrow">Ir a reservas →</div>
-      </a>
-      <a href="https://app.icarticular.cl" target="_blank" class="app-card">
-        <div class="app-card-icon icon-teal">🤖</div>
-        <h3>Asistente IA</h3>
-        <p>Plataforma de inteligencia artificial para apoyo clínico y predicción.</p>
-        <div class="app-card-arrow">Ir a la app →</div>
-      </a>
-      <a href="https://registro.icarticular.cl" target="_blank" class="app-card">
-        <div class="app-card-icon icon-purple">🦴</div>
-        <h3>Registro de Prótesis</h3>
-        <p>Registro Nacional de Prótesis. Ingresa y consulta datos de implantes.</p>
-        <div class="app-card-arrow">Ir al registro →</div>
-      </a>
-      <a href="mailto:contacto@icarticular.cl" class="app-card">
-        <div class="app-card-icon icon-green">✉️</div>
-        <h3>Contacto Directo</h3>
-        <p>¿Tienes dudas? Escríbenos directamente al equipo de ICA.</p>
-        <div class="app-card-arrow">Enviar email →</div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ESPECIALIDADES -->
-<section class="especialidades" id="especialidades">
-  <div class="section-inner">
-    <p class="section-label">Nuestras Áreas</p>
-    <h2 class="section-title">Especialidades Médicas</h2>
-    <p class="section-sub">Cobertura integral desde el diagnóstico hasta la rehabilitación completa</p>
-    <div class="esp-grid">
-      <div class="esp-card">
-        <div class="esp-header"></div>
-        <div class="esp-body">
-          <div class="esp-icon">🦵</div>
-          <h3>Cirugía de Rodilla</h3>
-          <p>Tratamiento quirúrgico y no quirúrgico de patologías de rodilla. Artroplastía total y unicompartamental de alta precisión.</p>
-          <div class="esp-tags">
-            <span class="tag">Artroplastía Total</span>
-            <span class="tag">Ligamentos</span>
-            <span class="tag">Meniscos</span>
-          </div>
-        </div>
-      </div>
-      <div class="esp-card">
-        <div class="esp-header"></div>
-        <div class="esp-body">
-          <div class="esp-icon">🦴</div>
-          <h3>Cirugía de Cadera</h3>
-          <p>Artroplastía total de cadera con técnicas mínimamente invasivas. Diagnóstico y manejo del conflicto femoroacetabular.</p>
-          <div class="esp-tags">
-            <span class="tag">Artroplastía Total</span>
-            <span class="tag">FAI</span>
-            <span class="tag">Revisión</span>
-          </div>
-        </div>
-      </div>
-      <div class="esp-card">
-        <div class="esp-header teal"></div>
-        <div class="esp-body">
-          <div class="esp-icon">🏃</div>
-          <h3>Kinesiología</h3>
-          <p>Rehabilitación deportiva, reintegro deportivo y recuperación post quirúrgica con protocolos basados en evidencia.</p>
-          <div class="esp-tags">
-            <span class="tag">Rehab. Deportiva</span>
-            <span class="tag">Post Quirúrgica</span>
-            <span class="tag">Reintegro</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DOCTORES -->
-<section class="doctores" id="equipo">
-  <div class="section-inner">
-    <p class="section-label">Nuestro Equipo</p>
-    <h2 class="section-title">Especialistas de excelencia</h2>
-    <p class="section-sub">Cirujanos traumatólogos con formación de alto nivel y experiencia en cirugía articular</p>
+<!-- ESPECIALISTAS -->
+<section id="especialistas">
+  <div class="wrap">
+    <p class="eyebrow">Especialistas</p>
+    <h2 class="title">Nuestro equipo</h2>
+    <p class="lead">Traumatólogos dedicados a la cirugía articular.</p>
     <div class="doc-grid">
 
-      <div class="doc-card">
-        <div class="doc-img-wrap">
-          <img
-            src="https://lh3.googleusercontent.com/sitesv/AA5AbUBzu5KG0Yx869dUwHafqSBkKGLyUOwqn0xzAM9kGki_c1scwk81w5-fwwKUTWPYWpmItLvjDRef5Xi--UeMsOPAoHepSKLnESDOVm5Vxp2_xJIoIPpf_u26GjKNd4fBYtb5e_DEIwL3cjnusKEUwKz4KcQr_XHMwQ4CG2UQTrdcGnQMcf85aVrD=w1280"
-            alt="Dr. Jaime Espinoza"
-          />
-          <div class="doc-overlay"></div>
-        </div>
-        <div class="doc-info">
-          <h3>Dr. Jaime Espinoza</h3>
-          <div class="doc-title">Traumatólogo – Cirugía Articular</div>
-          <p>Especialista en cirugía de rodilla y cadera, con foco en artroplastía primaria y de revisión.</p>
-          <div class="doc-clinics">
-            <div class="clinic-item">CleverSalud – Cáceres 630, Rancagua</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="doc-card">
-        <div class="doc-img-wrap">
-          <img
-            src="https://lh3.googleusercontent.com/sitesv/AA5AbUByq-SfSyDKS8JhCC69LvKXxg9R8RI3jqsEBdjVUoaDW3ezrcluU85mtV3zJvo8qUNoH3ENX1Lyzk_4tPils44svpktEHBX2eJwXDAjoL6BWl5m4wgluEEn2lsbK_2qAPpT046UUnnQV5BkmOaqOi0kRrMM6XfeBXhdU0qaIWxHFjmDw5Tzv8f2pd8=w1280"
-            alt="Dr. Cristóbal Huerta"
-          />
-          <div class="doc-overlay"></div>
+      <article class="doc">
+        <div class="doc-foto">
+          <img loading="lazy" alt="Dr. Cristóbal Huerta Cortés"
+               src="https://lh3.googleusercontent.com/sitesv/AA5AbUByq-SfSyDKS8JhCC69LvKXxg9R8RI3jqsEBdjVUoaDW3ezrcluU85mtV3zJvo8qUNoH3ENX1Lyzk_4tPils44svpktEHBX2eJwXDAjoL6BWl5m4wgluEEn2lsbK_2qAPpT046UUnnQV5BkmOaqOi0kRrMM6XfeBXhdU0qaIWxHFjmDw5Tzv8f2pd8=w800" />
         </div>
         <div class="doc-info">
           <h3>Dr. Cristóbal Huerta Cortés</h3>
-          <div class="doc-title">Traumatólogo – Cirugía Articular</div>
-          <p>Especialista en cadera y rodilla. Atención en Rancagua y Curicó con enfoque en resultados funcionales.</p>
-          <div class="doc-clinics">
-            <div class="clinic-item">CleverSalud – Cáceres 630, Rancagua</div>
-            <div class="clinic-item">Avanza – Carrera 92, Curicó</div>
-            <div class="clinic-item">Centro Médico San Martín – Villota 170, Curicó</div>
-          </div>
+          <div class="doc-cargo">Traumatólogo · Cadera y pelvis</div>
+          <p>Especialista en cirugía de cadera y pelvis. También atiende patología de rodilla.</p>
+          <ul class="doc-lugares">
+            <li><svg class="icon"><use href="#i-pin"/></svg>Avanza · Curicó</li>
+            <li><svg class="icon"><use href="#i-pin"/></svg>Centro Médico San Martín · Curicó</li>
+            <li><svg class="icon"><use href="#i-pin"/></svg>CleverSalud · Rancagua</li>
+          </ul>
+          <a href="https://reservas.icarticular.cl" target="_blank" rel="noopener" class="btn btn-main">
+            <svg class="icon"><use href="#i-cal"/></svg> Reservar con el Dr. Huerta
+          </a>
         </div>
-      </div>
+      </article>
 
+      <article class="doc">
+        <div class="doc-foto">
+          <img loading="lazy" alt="Dr. Jaime Espinoza"
+               src="https://lh3.googleusercontent.com/sitesv/AA5AbUBzu5KG0Yx869dUwHafqSBkKGLyUOwqn0xzAM9kGki_c1scwk81w5-fwwKUTWPYWpmItLvjDRef5Xi--UeMsOPAoHepSKLnESDOVm5Vxp2_xJIoIPpf_u26GjKNd4fBYtb5e_DEIwL3cjnusKEUwKz4KcQr_XHMwQ4CG2UQTrdcGnQMcf85aVrD=w800" />
+        </div>
+        <div class="doc-info">
+          <h3>Dr. Jaime Espinoza</h3>
+          <div class="doc-cargo">Traumatólogo · Cadera y rodilla</div>
+          <p>Especialista en cirugía de rodilla y cadera, con foco en prótesis primarias y de revisión.</p>
+          <ul class="doc-lugares">
+            <li><svg class="icon"><use href="#i-pin"/></svg>CleverSalud · Rancagua</li>
+          </ul>
+          <a href="https://reservas.icarticular.cl" target="_blank" rel="noopener" class="btn btn-main">
+            <svg class="icon"><use href="#i-cal"/></svg> Reservar con el Dr. Espinoza
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- DÓNDE ATENDEMOS -->
+<section id="donde">
+  <div class="wrap">
+    <p class="eyebrow">Dónde atendemos</p>
+    <h2 class="title">Curicó y Rancagua</h2>
+    <p class="lead">Elige el centro más cercano. Al reservar podrás ver los horarios disponibles en cada uno.</p>
+    <div class="centros">
+      <article class="centro">
+        <span class="ciudad">Curicó</span>
+        <h3>Avanza</h3>
+        <p class="dir">Carrera 92, Curicó</p>
+        <p class="quien"><b>Atiende:</b> Dr. Huerta</p>
+        <a class="btn btn-line" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Avanza+Carrera+92+Curic%C3%B3">
+          <svg class="icon"><use href="#i-pin"/></svg> Cómo llegar
+        </a>
+      </article>
+      <article class="centro">
+        <span class="ciudad">Curicó</span>
+        <h3>Centro Médico San Martín</h3>
+        <p class="dir">Villota 170, Curicó</p>
+        <p class="quien"><b>Atiende:</b> Dr. Huerta</p>
+        <a class="btn btn-line" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=Centro+M%C3%A9dico+San+Mart%C3%ADn+Villota+170+Curic%C3%B3">
+          <svg class="icon"><use href="#i-pin"/></svg> Cómo llegar
+        </a>
+      </article>
+      <article class="centro">
+        <span class="ciudad">Rancagua</span>
+        <h3>CleverSalud</h3>
+        <p class="dir">Cáceres 630, Rancagua</p>
+        <p class="quien"><b>Atienden:</b> Dr. Huerta y Dr. Espinoza</p>
+        <a class="btn btn-line" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/search/?api=1&query=CleverSalud+C%C3%A1ceres+630+Rancagua">
+          <svg class="icon"><use href="#i-pin"/></svg> Cómo llegar
+        </a>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- CONTACTO -->
-<section class="contacto" id="contacto">
-  <div class="section-inner">
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p class="section-label" style="text-align:left">Contáctanos</p>
-        <h2>Estamos aquí para ayudarte</h2>
-        <p>Comunícate con nuestro equipo para resolver tus dudas, solicitar información o agendar una consulta.</p>
-        <div class="contact-items">
-          <div class="contact-item">
-            <div class="contact-item-icon">✉️</div>
-            <div class="contact-item-text">
-              contacto@icarticular.cl
-              <span>Correo electrónico</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">📍</div>
-            <div class="contact-item-text">
-              Rancagua y Curicó, Chile
-              <span>Ubicaciones de atención</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon">🤖</div>
-            <div class="contact-item-text">
-              Asistente IA disponible 24/7
-              <span>app.icarticular.cl</span>
-            </div>
-          </div>
-        </div>
+<section id="contacto">
+  <div class="wrap">
+    <div class="contacto-box">
+      <div>
+        <p class="eyebrow">Contacto</p>
+        <h2 class="title">¿Tienes dudas?</h2>
+        <p>Escríbenos o pregúntale a nuestro asistente. Si ya sabes lo que necesitas, reserva tu hora online en minutos.</p>
       </div>
-      <div class="contact-cta-box">
-        <h3>¿Listo para tu consulta?</h3>
-        <p>Agenda tu hora en minutos con nuestro sistema de reservas online. Sin esperas, sin llamadas.</p>
-        <a href="https://reservas.icarticular.cl" target="_blank" class="btn-primary" style="display:inline-block">
-          Reservar mi hora →
+      <div class="contacto-lista">
+        <a href="https://reservas.icarticular.cl" target="_blank" rel="noopener">
+          <svg class="icon"><use href="#i-cal"/></svg>
+          <div>Reservar hora online<small>reservas.icarticular.cl</small></div>
+        </a>
+        <a href="mailto:contacto@icarticular.cl">
+          <svg class="icon"><use href="#i-mail"/></svg>
+          <div>contacto@icarticular.cl<small>Correo electrónico</small></div>
+        </a>
+        <a href="https://app.icarticular.cl" target="_blank" rel="noopener">
+          <svg class="icon"><use href="#i-chat"/></svg>
+          <div>Asistente ICA<small>Disponible las 24 horas</small></div>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
+<!-- PIE -->
 <footer>
-  <div class="footer-links">
-    <a href="#inicio">Inicio</a>
-    <a href="#especialidades">Especialidades</a>
-    <a href="#equipo">Equipo</a>
-    <a href="https://reservas.icarticular.cl" target="_blank">Reservas</a>
-    <a href="https://app.icarticular.cl" target="_blank">App IA</a>
-    <a href="https://registro.icarticular.cl" target="_blank">Registro Prótesis</a>
+  <div class="wrap">
+    <div class="pie-grid">
+      <div>
+        <h4>Instituto de Cirugía Articular</h4>
+        <p>Cirugía de cadera y rodilla, y rehabilitación kinesiológica en Curicó y Rancagua.</p>
+      </div>
+      <div>
+        <h4>Pacientes</h4>
+        <ul>
+          <li><a href="https://reservas.icarticular.cl" target="_blank" rel="noopener">Reservar hora</a></li>
+          <li><a href="#especialistas">Especialistas</a></li>
+          <li><a href="#donde">Dónde atendemos</a></li>
+          <li><a href="mailto:contacto@icarticular.cl">contacto@icarticular.cl</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Para profesionales</h4>
+        <ul>
+          <li><a href="https://registro.icarticular.cl" target="_blank" rel="noopener">Registro Nacional de Prótesis</a></li>
+          <li><a href="https://app.icarticular.cl" target="_blank" rel="noopener">Plataforma ICA</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="pie-legal">© <span id="anio">2026</span> Instituto de Cirugía Articular</p>
   </div>
-  <p>© 2025 Instituto de Cirugía Articular · <a href="mailto:contacto@icarticular.cl">contacto@icarticular.cl</a></p>
 </footer>
 
+<!-- BARRA INFERIOR (solo celular) -->
+<nav class="tabbar" aria-label="Navegación principal">
+  <a href="https://reservas.icarticular.cl" target="_blank" rel="noopener" class="reservar">
+    <svg class="icon"><use href="#i-cal"/></svg>Reservar
+  </a>
+  <a href="#especialistas"><svg class="icon"><use href="#i-user"/></svg>Especialistas</a>
+  <a href="#donde"><svg class="icon"><use href="#i-pin"/></svg>Dónde</a>
+  <a href="#contacto"><svg class="icon"><use href="#i-mail"/></svg>Contacto</a>
+</nav>
+
 <script>
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+  // Marca en el menú (arriba y abajo) la sección que se está viendo
+  (function () {
+    var links = document.querySelectorAll('.menu a[href^="#"], .tabbar a[href^="#"]');
+    var secciones = ['tratamos', 'especialistas', 'donde', 'contacto']
+      .map(function (id) { return document.getElementById(id); });
+    function marcar(id) {
+      links.forEach(function (a) { a.classList.toggle('activo', a.getAttribute('href') === '#' + id); });
+    }
+    if (!('IntersectionObserver' in window)) return;
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) { if (e.isIntersecting) marcar(e.target.id); });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    secciones.forEach(function (s) { obs.observe(s); });
+    window.addEventListener('scroll', function () { if (window.scrollY < 200) marcar(''); }, { passive: true });
+  })();
 </script>
 
 <!-- ASISTENTE DE VOZ (app.icarticular.cl en modo burbuja)
@@ -578,6 +522,10 @@
     width: 400px; height: min(720px, calc(100vh - 24px));
     border-radius: 18px; background: #F4F7FB;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  }
+  @media (max-width: 900px) {
+    /* Sobre la barra inferior */
+    #ica-asistente:not(.abierto) { bottom: calc(var(--tab-h) + env(safe-area-inset-bottom) + 8px); }
   }
   @media (max-width: 600px) {
     #ica-asistente.abierto {
