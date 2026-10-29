@@ -255,6 +255,9 @@
 
 <main>
 
+<!-- ASISTENTES (conoce.icarticular.cl): en celular, arriba de todo -->
+<div id="conoce-cel" class="conoce-lugar"></div>
+
 <!-- INICIO -->
 <section class="hero" id="inicio">
   <div class="wrap hero-grid">
@@ -274,6 +277,9 @@
     </div>
   </div>
 </section>
+
+<!-- ASISTENTES (conoce.icarticular.cl): en PC, bajo la portada -->
+<div id="conoce-pc" class="conoce-lugar"></div>
 
 <!-- ¿QUÉ NECESITAS? -->
 <div class="necesitas">
@@ -534,6 +540,43 @@
     }
   }
 </style>
+<!-- Asistentes que conversan: el carrusel y el video viven en conoce.icarticular.cl
+     (repo hipokratia-conversa). Aquí solo se muestran en un marco: arriba en celular,
+     bajo la portada en PC. Al tocar un avatar el marco pasa a pantalla completa. -->
+<style>
+  .conoce-marco { display: block; width: 100%; height: 360px; border: 0; background: transparent; }
+  /* Celular: el carrusel va primero, bajo la barra fija; la portada sube */
+  #conoce-cel:not(:empty) { padding-top: var(--nav-h); background: #fff; }
+  #conoce-cel:not(:empty) + .hero { padding-top: 24px; }
+  .conoce-marco.grande { position: fixed; inset: 0; width: 100vw !important; height: 100dvh !important; z-index: 2147483000; background: #070D22; }
+</style>
+<script>
+  (function () {
+    var CONOCE = 'https://conoce.icarticular.cl';
+    var celular = window.matchMedia('(max-width: 767px)').matches;
+    var lugar = document.getElementById(celular ? 'conoce-cel' : 'conoce-pc');
+    if (!lugar) return;
+    var marco = document.createElement('iframe');
+    marco.className = 'conoce-marco';
+    marco.src = CONOCE + '/?modo=carrusel';
+    marco.title = 'Conoce a nuestros asistentes: Ica, Ipo, Sophia y Katia';
+    marco.allow = 'autoplay';
+    lugar.appendChild(marco);
+    window.addEventListener('message', function (e) {
+      if (e.origin !== CONOCE || e.source !== marco.contentWindow) return;
+      var d = e.data || {};
+      if (d.fuente !== 'hipokratia-conversa') return;
+      if (d.tipo === 'alto' && d.alto > 0) marco.style.height = Math.min(900, Math.ceil(d.alto)) + 'px';
+      if (d.tipo === 'expandir' || d.tipo === 'contraer') {
+        var grande = d.tipo === 'expandir';
+        marco.classList.toggle('grande', grande);
+        // Con el video abierto, la página de fondo no se desplaza
+        document.documentElement.style.overflow = grande ? 'hidden' : '';
+      }
+    });
+  })();
+</script>
+
 <iframe id="ica-asistente"
         src="https://app.icarticular.cl/?modo=widget"
         title="Asistente del Instituto de Cirugía Articular"
